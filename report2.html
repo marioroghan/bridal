@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Most Wishlisted Jewelry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f7f7f7;
+        margin-top: 0px; /* Added space for sticky header */
+    }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #3a3a3a;
+            padding: 15px;
+            position: sticky; /* Change position to sticky */
+            top: 0; /* Ensure it stays at the top of the page */
+            left: 0;
+            right: 0;
+            z-index: 100; /* Keeps the header above other content */
+        }
+
+
+        .logo-container {
+            display: flex;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.3rem;
+            align-items: center;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            display: none; /* Hide by default */
+            flex-direction: column;
+            padding: 15px;
+            
+        }
+
+        .navbar.show {
+            display: flex; /* Show when toggled */
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            width: 100%;
+            text-align: right;
+        }
+
+        .navbar ul li {
+            margin: 10px 0;
+        }
+
+        .navbar a {
+            color: #020202;
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 10px;
+            display: block;
+        }
+
+        /* Hamburger Icon - Always Visible */
+        .menu-icon {
+            display: block;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+/* Page Title */
+h2 {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Wishlist Container */
+.wishlist-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 40px;
+    justify-content: center;
+}
+
+/* Wishlist Items */
+.wishlist-item {
+    background-color: white;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.wishlist-item img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+}
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="WhatsApp Image 2025-01-05 at 10.33.17 PM.jpeg" alt="Bridal Gallery Logo" class="logo">
+            <h1>Bridal Gallery Trichy Rental Jewellery</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="categories.html">Category</a></li>
+                <li><a href="#" onclick="toggleSearch()">Search</a></li>
+                <li><a href="review.html">Review</a></li>
+                <li><a href="bridal_sgallery.html">Bride's Gallery</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </header>
+    <script>
+        // Toggle menu visibility on small screens
+        function toggleMenu() {
+            const navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("show");
+        }
+        function toggleSearch() {
+            const searchContainer = document.querySelector(".search-container");
+            searchContainer.style.display = searchContainer.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+    <main>
+        <h2>Most Wishlisted Jewelry</h2>
+        <div class="wishlist-container">
+            <div class="wishlist-item">
+                <img src="image1.jpg" alt="Jewelry 1">
+                <p>Product ID: 001</p>
+            </div>
+            <div class="wishlist-item">
+                <img src="image2.jpg" alt="Jewelry 2">
+                <p>Product ID: 002</p>
+            </div>
+            <div class="wishlist-item">
+                <img src="image3.jpg" alt="Jewelry 3">
+                <p>Product ID: 003</p>
+            </div>
+            <div class="wishlist-item">
+                <img src="image4.jpg" alt="Jewelry 4">
+                <p>Product ID: 004</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

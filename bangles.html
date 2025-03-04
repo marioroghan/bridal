@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangles - Bridal Gallery</title>
+  <style>
+    * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f7f7f7;
+        margin-top: 0px; /* Added space for sticky header */
+    }
+    /* Header Section */
+.header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #3a3a3a;
+            padding: 15px;
+            position: sticky; /* Change position to sticky */
+            top: 0; /* Ensure it stays at the top of the page */
+            left: 0;
+            right: 0;
+            z-index: 100; /* Keeps the header above other content */
+        }
+
+
+        .logo-container {
+            display: flex;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.3rem;
+            align-items: center;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            display: none; /* Hide by default */
+            flex-direction: column;
+            padding: 15px;
+            
+        }
+
+        .navbar.show {
+            display: flex; /* Show when toggled */
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            width: 100%;
+            text-align: right;
+        }
+
+        .navbar ul li {
+            margin: 10px 0;
+        }
+
+        .navbar a {
+            color: #020202;
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 10px;
+            display: block;
+        }
+
+        /* Hamburger Icon - Always Visible */
+        .menu-icon {
+            display: block;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+    /* Search Bar */
+    .search-bar {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: block;
+      outline: none;
+    }
+
+    .products-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .product-item {
+      background: white;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .product-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+  
+    .modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* Darker background for focus */
+  justify-content: center;
+  align-items: center;
+  z-index: 2000; /* Ensure it’s above everything */
+}
+
+.modal-content {
+  background:transparent;
+  padding: 20px;
+  border-radius: 10px;
+  width: 95%;
+  height: 95vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.modal img {
+  width: 1095%; /* Make the image wider */
+  max-width: 2000px; /* Increase max width */
+  max-height: 75vh; /* Allow better scaling */
+  object-fit: contain;
+}
+
+#modal-product-id {
+  font-size: 1.5rem; /* Bigger text */
+  color: #ff4081; /* Stylish pink font */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.modal button {
+  margin-top: 20px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  background: #ff4081;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+.product-item {
+  display: inline-block;
+  margin: 0 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: translateY(-10px);
+}
+
+     /* Title of Bangles Section */
+     .category-title h1 {
+      text-align: left;
+      margin-left: 100px;
+      margin-top: 70px; /* Added margin to push the title below the header */
+      font-size: 3rem;
+      color: #333;
+    }
+    /* Footer Section */
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #3a3a3a;
+        display: flex;
+        justify-content: space-around;
+        padding: 15px 0;
+        color: white;
+        text-align: center;
+        font-size: 1rem;
+    }
+    
+    .footer a {
+        color: white;
+        text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo-container">
+        <img src="WhatsApp Image 2025-01-05 at 10.33.17 PM.jpeg" alt="Bridal Gallery Logo" class="logo">
+        <h1>Bridal Gallery Trichy Rental Jewelry</h1>
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="categories.html">Category</a></li>
+            <li><a href="#">Search</a></li>
+            <li><a href="review.html">Review</a></li>
+            <li><a href="bridal_sgallery.html">Bride's Gallery</a></li>
+        </ul>
+    </nav>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</header>
+<script>
+    // Toggle menu visibility on small screens
+    function toggleMenu() {
+        const navbar = document.querySelector(".navbar");
+        navbar.classList.toggle("show");
+    }
+</script>
+
+
+  <!-- Bangles Section Title -->
+  <div class="category-title">
+    <h1>Bangle Collections</h1>
+  </div>
+
+  <!-- Search Bar Section -->
+  <input type="text" id="searchBar" class="search-bar" placeholder="Search for Jewelry No.">
+
+
+  <section class="products-container">
+    <div class="product-item" onclick="openModal('Victorian1.jpg', 'Jewelry No. 001')">
+      <img src="20250115_164113.jpg" alt="Jewelry 1" class="product-img">
+      <p class="product-id">Jewelry No. 001</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+      <img src="20250115_163931.jpg" alt="Jewelry 2" class="product-img">
+      <p class="product-id">Jewelry No. 002</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+        <img src="20250115_163812.jpg" alt="Jewelry 3" class="product-img">
+        <p class="product-id">Jewelry No. 003</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+        <img src="20250115_163516.jpg" alt="Jewelry 4" class="product-img">
+        <p class="product-id">Jewelry No. 004</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+        <img src="20250115_163257.jpg" alt="Jewelry 5" class="product-img">
+        <p class="product-id">Jewelry No. 005</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+        <img src="20250115_164243.jpg" alt="Jewelry 6" class="product-img">
+        <p class="product-id">Jewelry No. 006</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+       <img src="20250115_164049.jpg" alt="Jewelry 6" class="product-img">
+       <p class="product-id">Jewelry No. 007</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+       <img src="20250115_163907.jpg" alt="Jewelry 6" class="product-img">
+       <p class="product-id">Jewelry No. 008</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+       <img src="20250115_163506.jpg" alt="Jewelry 6" class="product-img">
+       <p class="product-id">Jewelry No. 009</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+       <img src="20250115_163120.jpg" alt="Jewelry 6" class="product-img">
+       <p class="product-id">Jewelry No. 010</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian1.jpg', 'Jewelry No. 001')">
+      <img src="20250115_163033.jpg" alt="Jewelry 1" class="product-img">
+      <p class="product-id">Jewelry No. 011</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+      <img src="20250115_162945.jpg" alt="Jewelry 2" class="product-img">
+      <p class="product-id">Jewelry No. 012</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+        <img src="20250115_162806.jpg" alt="Jewelry 3" class="product-img">
+        <p class="product-id">Jewelry No. 013</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+        <img src="20250115_162147.jpg" alt="Jewelry 4" class="product-img">
+        <p class="product-id">Jewelry No. 014</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+        <img src="4.jpeg" alt="Jewelry 5" class="product-img">
+        <p class="product-id">Jewelry No. 015</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+        <img src="2.jpeg" alt="Jewelry 6" class="product-img">
+        <p class="product-id">Jewelry No. 016</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+       <img src="1.jpeg" alt="Jewelry 6" class="product-img">
+       <p class="product-id">Jewelry No. 017</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+       <img src="5.jpeg" alt="Jewelry 6" class="product-img">
+       <p class="product-id">Jewelry No. 018</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+       <img src="" alt="Jewelry 6" class="product-img">
+       <p class="product-id">Jewelry No. 019</p>
+    </div>
+    <div class="product-item" onclick="openModal('Victorian2.jpg', 'Jewelry No. 002')">
+       <img src="" alt="Jewelry 6" class="product-img">
+       <p class="product-id">Jewelry No. 020</p>
+    </div>
+  </section>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <img id="modal-img" src="" alt="">
+      <p id="modal-product-id"></p>
+      <button id="wishlist-btn">Add to Wishlist</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal(imageSrc, productId) {
+      document.getElementById('modal-img').src = imageSrc;
+      document.getElementById('modal-product-id').textContent = productId;
+      document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    // Dynamically attach event listeners to all product images
+    document.querySelectorAll('.product-item').forEach(item => {
+      item.addEventListener('click', function () {
+        let imageSrc = this.querySelector('img').src; // Get the clicked image src
+        let productId = this.querySelector('.product-id').textContent; // Get product ID
+        openModal(imageSrc, productId);
+      });
+    });
+
+    function openModal(imageSrc, productId) {
+        document.getElementById('modal-img').src = imageSrc;
+        document.getElementById('modal-product-id').textContent = productId;
+        document.getElementById('modal').style.display = 'flex';
+
+        // Change button action dynamically
+        document.getElementById('wishlist-btn').setAttribute('onclick', `addToWishlist('${imageSrc}', '${productId}')`);
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+
+    function addToWishlist(imageSrc, productId) {
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+        let itemExists = wishlist.some(item => item.id === productId);
+
+        if (!itemExists) {
+            wishlist.push({ id: productId, image: imageSrc });
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            alert('Added to Wishlist!');
+        } else {
+            alert('This item is already in your Wishlist.');
+        }
+    }
+</script>
+
+  </script>
+   <script>
+    // JavaScript to filter products based on search input
+    document.getElementById('searchBar').addEventListener('input', function(event) {
+      let searchQuery = event.target.value.toLowerCase();
+      let products = document.querySelectorAll('.product-item');
+      
+      products.forEach(product => {
+        let productId = product.querySelector('.product-id').textContent.toLowerCase();
+        
+        if (productId.includes(searchQuery)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+  </script>
+  <!-- Footer Section -->
+<footer class="footer">
+  <a href="home.html">Home</a>
+  <a href="categories.html">Category</a>
+  <a href="#">Filter</a>
+  <a href="wishlist.html">Wishlist</a>
+</footer>
+  
+
+
+</body>
+</html>

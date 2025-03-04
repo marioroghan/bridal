@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review & Comment</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f7f7f7;
+        margin-top: 0px; /* Added space for sticky header */
+    }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #3a3a3a;
+            padding: 15px;
+            position: sticky; /* Change position to sticky */
+            top: 0; /* Ensure it stays at the top of the page */
+            left: 0;
+            right: 0;
+            z-index: 100; /* Keeps the header above other content */
+        }
+
+
+        .logo-container {
+            display: flex;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.3rem;
+            align-items: center;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            display: none; /* Hide by default */
+            flex-direction: column;
+            padding: 15px;
+            
+        }
+
+        .navbar.show {
+            display: flex; /* Show when toggled */
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            width: 100%;
+            text-align: right;
+        }
+
+        .navbar ul li {
+            margin: 10px 0;
+        }
+
+        .navbar a {
+            color: #020202;
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 10px;
+            display: block;
+        }
+
+        /* Hamburger Icon - Always Visible */
+        .menu-icon {
+            display: block;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .review-container {
+            justify-items:center ;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+            margin-left: 450px;
+        }
+
+        .greeting {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #292728;
+        }
+
+        .question {
+            font-size: 18px;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .radio-group {
+            margin: 10px 0;
+        }
+
+        .radio-group label {
+            margin: 0 10px;
+            font-size: 16px;
+        }
+
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .star-rating input {
+            display: none;
+        }
+
+        .star-rating label {
+            font-size: 30px;
+            color: #ccc;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .star-rating input:checked ~ label,
+        .star-rating label:hover,
+        .star-rating label:hover ~ label {
+            color: gold;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #242323;
+            color: white;
+            font-size: 18px;
+            border: none;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #9c9699;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="WhatsApp Image 2025-01-05 at 10.33.17 PM.jpeg" alt="Bridal Gallery Logo" class="logo">
+            <h1>Bridal Gallery Trichy Rental Jewellery</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="categories.html">Category</a></li>
+                <li><a href="#" onclick="toggleSearch()">Search</a></li>
+                <li><a href="review.html">Review</a></li>
+                <li><a href="bridal_sgallery.html">Bride's Gallery</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </header>
+    <script>
+        // Toggle menu visibility on small screens
+        function toggleMenu() {
+            const navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("show");
+        }
+        function toggleSearch() {
+            const searchContainer = document.querySelector(".search-container");
+            searchContainer.style.display = searchContainer.style.display === "block" ? "none" : "block";
+        }
+    </script>
+   
+   
+    <div class="review-container">
+        <div class="greeting">Hello, Mario</div>
+
+        <div class="question">Is this website useful to you?</div>
+        <div class="radio-group">
+            <input type="radio" id="yes" name="useful" value="yes">
+            <label for="yes">Yes</label>
+            <input type="radio" id="no" name="useful" value="no">
+            <label for="no">No</label>
+        </div>
+
+        <div class="question">Kindly rate our website</div>
+        <div class="star-rating">
+            <input type="radio" id="star5" name="rating" value="5">
+            <label for="star5">★</label>
+            <input type="radio" id="star4" name="rating" value="4">
+            <label for="star4">★</label>
+            <input type="radio" id="star3" name="rating" value="3">
+            <label for="star3">★</label>
+            <input type="radio" id="star2" name="rating" value="2">
+            <label for="star2">★</label>
+            <input type="radio" id="star1" name="rating" value="1">
+            <label for="star1">★</label>
+        </div>
+
+        <div class="question">Kindly share your suggestions and comments</div>
+        <textarea placeholder="Write your feedback here..."></textarea>
+
+        <button type="submit">Submit</button>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Wishlist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f7f7f7;
+            margin-top: 0px; /* Added space for sticky header */
+        }
+       /* Header Section */
+       .header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #3a3a3a;
+            padding: 15px;
+            position: sticky; /* Change position to sticky */
+            top: 0; /* Ensure it stays at the top of the page */
+            left: 0;
+            right: 0;
+            z-index: 100; /* Keeps the header above other content */
+        }
+
+
+        .logo-container {
+            display: flex;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.3rem;
+            align-items: center;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            display: none; /* Hide by default */
+            flex-direction: column;
+            padding: 15px;
+            
+        }
+
+        .navbar.show {
+            display: flex; /* Show when toggled */
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            width: 100%;
+            text-align: right;
+        }
+
+        .navbar ul li {
+            margin: 10px 0;
+        }
+
+        .navbar a {
+            color: #020202;
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 10px;
+            display: block;
+        }
+
+        /* Hamburger Icon - Always Visible */
+        .menu-icon {
+            display: block;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+        .wishlist-container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+        }
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        .wishlist-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .wishlist-item img {
+            width: 100%;
+            max-width: 150px;
+            border-radius: 10px;
+        }
+        .wishlist-item button {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="WhatsApp Image 2025-01-05 at 10.33.17 PM.jpeg" alt="Bridal Gallery Logo" class="logo">
+            <h1>   Bridal Gallery Trichy Rental Jewellery</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="categories.html">Category</a></li>
+                <li><a href="#" onclick="toggleSearch()">Search</a></li>
+                <li><a href="review.html">Review</a></li>
+                <li><a href="bridal_sgallery.html">Bride's Gallery</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </header>
+    <script>
+        // Toggle menu visibility on small screens
+        function toggleMenu() {
+            const navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("show");
+        }
+        function toggleSearch() {
+            const searchContainer = document.querySelector(".search-container");
+            searchContainer.style.display = searchContainer.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+    <div class="wishlist-container">
+        <h2>My Wishlist</h2>
+        <div class="wishlist-grid" id="wishlist">
+            <!-- Wishlist items will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <script>
+        function loadWishlist() {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            let wishlistContainer = document.getElementById('wishlist');
+
+            wishlistContainer.innerHTML = '';
+
+            if (wishlist.length === 0) {
+                wishlistContainer.innerHTML = '<p>Your wishlist is empty.</p>';
+            } else {
+                wishlist.forEach(item => {
+                    let wishlistItem = document.createElement('div');
+                    wishlistItem.classList.add('wishlist-item');
+                    wishlistItem.innerHTML = `
+                        <img src="${item.image}" alt="${item.id}">
+                        <h3>${item.id}</h3>
+                        <button onclick="removeFromWishlist('${item.id}')">Remove</button>
+                    `;
+                    wishlistContainer.appendChild(wishlistItem);
+                });
+            }
+        }
+
+        function removeFromWishlist(productId) {
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            wishlist = wishlist.filter(item => item.id !== productId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            loadWishlist();
+        }
+
+        // Load Wishlist on Page Load
+        document.addEventListener('DOMContentLoaded', loadWishlist);
+    </script>
+
+</body>
+</html>

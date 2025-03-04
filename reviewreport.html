@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bridal Gallery Reviews</title>
+    <style>
+         * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        background-color: #f7f7f7;
+        margin-top: 0px; /* Added space for sticky header */
+    }
+
+/* Header Section */
+.header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #3a3a3a;
+            padding: 15px;
+            position: sticky; /* Change position to sticky */
+            top: 0; /* Ensure it stays at the top of the page */
+            left: 0;
+            right: 0;
+            z-index: 100; /* Keeps the header above other content */
+        }
+
+
+        .logo-container {
+            display: flex;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.3rem;
+            align-items: center;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            display: none; /* Hide by default */
+            flex-direction: column;
+            padding: 15px;
+            
+        }
+
+        .navbar.show {
+            display: flex; /* Show when toggled */
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            width: 100%;
+            text-align: right;
+        }
+
+        .navbar ul li {
+            margin: 10px 0;
+        }
+
+        .navbar a {
+            color: #020202;
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 10px;
+            display: block;
+        }
+
+        /* Hamburger Icon - Always Visible */
+        .menu-icon {
+            display: block;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+.review-section {
+    background: white;
+    padding: 20px;
+    margin: 20px auto;
+    width: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    
+}
+.review-section h2{
+    text-align: center;
+}
+
+.rating {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.rating-bars {
+    margin-top: 20px;
+}
+
+.bar-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+}
+
+.bar {
+    width: 60%;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.filled {
+    height: 100%;
+    background: gold;
+}
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+            <img src="WhatsApp Image 2025-01-05 at 10.33.17 PM.jpeg" alt="Bridal Gallery Logo" class="logo">
+            <h1>Bridal Gallery Trichy Rental Jewelry</h1>
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="categories.html">Category</a></li>
+                <li><a href="#">Search</a></li>
+                <li><a href="review.html">Review</a></li>
+                <li><a href="bridal_sgallery.html">Bride's Gallery</a></li>
+            </ul>
+        </nav>
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </header>
+    <script>
+        // Toggle menu visibility on small screens
+        function toggleMenu() {
+            const navbar = document.querySelector(".navbar");
+            navbar.classList.toggle("show");
+        }
+    </script>
+
+    <section class="review-section">
+        <h2>Reviews</h2>
+        <div class="rating">
+            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>☆</span>
+            <p>4.5</p>
+        </div>
+        <p>Based on 20 reviews</p>
+
+        <div class="rating-bars">
+            <div class="bar-container">
+                <span>5 Star</span>
+                <div class="bar"><div class="filled" style="width: 60%;"></div></div>
+                <span>60%</span>
+            </div>
+            <div class="bar-container">
+                <span>4 Star</span>
+                <div class="bar"><div class="filled" style="width: 40%;"></div></div>
+                <span>40%</span>
+            </div>
+            <div class="bar-container">
+                <span>3 Star</span>
+                <div class="bar"><div class="filled" style="width: 0%;"></div></div>
+                <span>0%</span>
+            </div>
+            <div class="bar-container">
+                <span>2 Star</span>
+                <div class="bar"><div class="filled" style="width: 0%;"></div></div>
+                <span>0%</span>
+            </div>
+            <div class="bar-container">
+                <span>1 Star</span>
+                <div class="bar"><div class="filled" style="width: 0%;"></div></div>
+                <span>0%</span>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

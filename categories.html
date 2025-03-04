@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bridal Gallery - Categories</title>
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #f7f7f7;
+  margin-top: 0px; /* Added space for sticky header */
+}
+
+      .header
+      {
+        display: flex;
+        justify-content: space-between;
+        background-color: #3a3a3a;
+        padding: 15px;
+        position: sticky; /* Change position to sticky */
+        top: 0; /* Ensure it stays at the top of the page */
+        left: 0;
+        right: 0;
+        z-index: 100; /* Keeps the header above other content */
+      }
+
+
+      .logo-container {
+         display: flex;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            
+        }
+
+        h1 {
+            color: #fff;
+            font-size: 2.3rem;
+            align-items: center;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background-color: transparent;
+            display: none; /* Hide by default */
+            flex-direction: column;
+            padding: 15px;
+            
+        }
+
+        .navbar.show {
+            display: flex; /* Show when toggled */
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            width: 100%;
+            text-align: right;
+        }
+
+        .navbar ul li {
+            margin: 10px 0;
+        }
+
+        .navbar a {
+            color: #020202;
+            text-decoration: none;
+            font-size: 1.5rem;
+            padding: 10px;
+            display: block;
+        }
+
+        /* Hamburger Icon - Always Visible */
+        .menu-icon {
+            display: block;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+.categories {
+  padding: 50px 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.categories h2 {
+  font-size: 2rem;
+  color: #282729;
+  margin-bottom: 40px;
+}
+
+.category-item {
+  display: inline-block;
+  width: 22%;
+  margin: 0 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  text-decoration: none;
+}
+
+.category-item:hover {
+  transform: translateY(-10px);
+}
+.category-item a{
+  text-decoration: none;
+}
+
+.category-img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.category-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.category-info h3 {
+  font-size: 1.5rem;
+  color: #0d0d0e;
+  margin-bottom: 10px;
+}
+
+.category-info p {
+  font-size: 1rem;
+  color: rgb(0, 0, 0);
+  margin-bottom: 15px;
+}
+
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="header">
+    <div class="logo-container">
+        <img src="WhatsApp Image 2025-01-05 at 10.33.17 PM.jpeg" alt="Bridal Gallery Logo" class="logo">
+        <h1>Bridal Gallery Trichy Rental Jewellery</h1>
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="categories.html">Category</a></li>
+            <li><a href="#">Search</a></li>
+            <li><a href="review.html">Review</a></li>
+            <li><a href="bridal_sgallery.html">Bride's Gallery</a></li>
+        </ul>
+    </nav>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</header>
+<script>
+  // Toggle menu visibility on small screens
+  function toggleMenu() {
+      const navbar = document.querySelector(".navbar");
+      navbar.classList.toggle("show");
+  }
+</script>
+
+  <main>
+    <section class="categories">
+      <h2>Our Categories</h2>
+      
+      <!-- Existing Categories -->
+      <div class="category-item">
+        <a href="bangles.html">
+          <img src="20250115_163931.jpg" alt="Bangles" class="category-img">
+          <div class="category-info">
+            <h3>Bangles</h3>
+            <p>Explore our elegant and traditional bangles collection.</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="category-item">
+        <a href="chokers.html">
+          <img src="WhatsApp Image 2025-01-19 at 11.27.29 PM.jpeg" alt="Chokers" class="category-img">
+          <div class="category-info">
+            <h3>Chockers</h3>
+            <p>Find the perfect choker for your bridal look.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="category-item">
+        <a href="Mat.html">
+          <img src="726.jpeg" alt="Mats" class="category-img">
+          <div class="category-info">
+            <h3>Mat</h3>
+            <p>Discover beautiful bridal mats for your special day.</p>
+          </div>
+        </a>
+      </div>
+
+      <!-- New Categories -->
+      <div class="category-item">
+        <a href="white-stone.html">
+          <img src="231.jpg" alt="White Stone" class="category-img">
+          <div class="category-info">
+            <h3>White Stone</h3>
+            <p>Browse our stunning white stone jewelry collection.</p>
+          </div>
+        </a>
+      </div>
+      
+      <div class="category-item">
+        <a href="victorian.html">
+          <img src="V1a.jpg" alt="Victorian" class="category-img">
+          <div class="category-info">
+            <h3>Victorian</h3>
+            <p>Elegance and charm with our Victorian jewelry range.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="category-item">
+        <a href="nagas.html">
+          <img src="nag1.jpg" alt="Nagas" class="category-img">
+          <div class="category-info">
+            <h3>Nagas</h3>
+            <p>Discover the ancient beauty of Nagas jewelry.</p>
+          </div>
+        </a>
+      </div>
+
+      <div class="category-item">
+        <a href="ad.html">
+          <img src="115.jpg" alt="Ad" class="category-img">
+          <div class="category-info">
+            <h3>Ad</h3>
+            <p>Adorn yourself with our exquisite Ad jewelry pieces.</p>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+  <script>
+    // Handle sticky header visibility on scroll
+    let lastScrollTop = 0;
+        window.addEventListener("scroll", function() {
+            let header = document.querySelector(".header");
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                header.style.top = "-70px"; // hide header on scroll down
+            } else {
+                header.style.top = "0"; // show header on scroll up
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        });
+  </script>
+</body>
+</html>
